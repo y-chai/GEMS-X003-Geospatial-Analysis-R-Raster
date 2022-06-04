@@ -1,0 +1,10 @@
+<PAMDataset>
+  <PAMRasterBand band="1">
+    <Description>land cover</Description>
+    <CategoryNames>
+      <Category>corn</Category>
+      <Category>other crop</Category>
+      <Category>non-cropland</Category>
+    </CategoryNames>
+  </PAMRasterBand>
+</PAMDataset>
