@@ -37,7 +37,7 @@ The course will be delivered via a Jupyter Notebook hosted on the GEMS Informati
     ```
     
     
-## Week 3 Lecture: Introduction to spatial data and mapping in R
+## Week 3 Lecture: Basic geocomputation with raster data in R
 1. Navigate to your `GEMSX003` directory using the following commands:
     ```shell
     cd classes
