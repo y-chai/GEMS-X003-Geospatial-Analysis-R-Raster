@@ -25,23 +25,13 @@ The course will be delivered via a Jupyter Notebook hosted on the GEMS Informati
 
 4. If the directories `classes\GEMSX003` were not created before, create directories for this class in the bash terminal using the following four commands  
     ```shell
-    mkdir classes  
-    cd classes  
-    mkdir GEMSX003  
-    cd GEMSX003
+    cd; mkdir -p classes/GEMSX003
     ```  
-    If these directories already exist, use the following commands to change to this directory
-    ```shell
-    cd classes
-    cd GEMSX003
-    ```
-    
-    
+     
 ## Week 3 Lecture: Basic geocomputation with raster data in R
 1. Navigate to your `GEMSX003` directory using the following commands:
     ```shell
-    cd classes
-    cd GEMSX003
+    cd; cd classes/GEMSX003
     ```
 2. Clone the git repository for this week's lecture  
     ```shell
