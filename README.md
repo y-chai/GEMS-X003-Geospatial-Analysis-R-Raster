@@ -23,7 +23,7 @@ The course will be delivered via a Jupyter Notebook hosted on the GEMS Informati
 
 3. Open a bash terminal by clicking 'Terminal' icon in the Launcher **OR** by clicking `File > New > Terminal`
 
-4. If the directories `classes\GEMSX003` were not created before, create directories for this class in the bash terminal using the following four commands  
+4. If the directories `classes\GEMSX003` were not created before, create directories for this class in the bash terminal using the following command  
     ```shell
     cd; mkdir -p classes/GEMSX003
     ```  
@@ -37,4 +37,4 @@ The course will be delivered via a Jupyter Notebook hosted on the GEMS Informati
     ```shell
     git clone https://github.com/y-chai/GEMS-X003-Geospatial-Analysis-R-Raster.git
     ```
-3. In your JupyterLab environment, open the `GEMS-X003-Geospatial-Analysis-R-Raster` directory and then open the `x003_Module3_Raster.ipynb` Jupyter Notebook to follow along throughout the class 
+3. Using the file brower, open the `classes/GEMSX003/GEMS-X003-Geospatial-Analysis-R-Raster` directory and then open the `x003_Module3_Raster_'terra'.ipynb` Jupyter Notebook to follow along throughout the class 
