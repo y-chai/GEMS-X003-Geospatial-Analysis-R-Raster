@@ -22,4 +22,4 @@ This course is designed for those who are interested in explicitly accounting fo
 ## Week 3 Lecture: Basic geocomputation with raster data in R
 
 1.  Navigate to your `GEMS-X003-Geospatial-Analysis-R-Raster` directory
-2.  Open the `x003_Module3_Raster_'terra'.Rmd` Jupyter Notebook to follow along throughout the class
+2.  Open the `x003_Module3_Raster_'terra'.Rmd` notebook to follow along throughout the class
