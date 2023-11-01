@@ -678,7 +678,13 @@ spam_P_MAIZ_A_mn_mask <- mask(spam_P_MAIZ_A_mn, gw_prov123)
 plot(spam_P_MAIZ_A_mn_mask)
 ```
 
-**Step 2:** Use `extract()` to calculate the total maize production within each of the MN water provinces 1, 2, 3 - What's the dimension of the output from `extract()`? Why is that? - Add in the "PROVINCE" column to the output data.frame from `extract()` - Sum by "PROVINCE" to get the province-level total production
+**Step 2:** Use `extract()` to calculate the total maize production within each of the MN water provinces 1, 2, 3
+
+-   What's the dimension of the output from `extract()`? Why is that?
+
+-   Add in the "PROVINCE" column to the output data.frame from `extract()`
+
+-   Sum by "PROVINCE" to get the province-level total production
 
 ```{r}
 # Your code
