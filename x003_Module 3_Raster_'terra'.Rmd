@@ -350,7 +350,7 @@ plot(yield)
 
 The following code chunk applies an aggregation function to all cells within the specified neighborhood (in this case 3-by-3 cells), uses the corresponding output as the new value for the the central cell, and moves on to the next central cell:
 
-<img src="images/focal_example.png" title="GEMS" alt="GEMS Logo" width="600"/>
+<img src="images/focal_example.png" title="focal example" alt="focal example" width="600"/>
 
 ```{r}
 area_focal_1 = focal(area, w = matrix(1, nrow = 3, ncol = 3), fun = min)
