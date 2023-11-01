@@ -671,8 +671,10 @@ tm_shape(gw_prov) +
 gw_prov123 <- gw_prov[gw_prov$PROVINCE %in% c("1", "2", "3"), ]
 
 # mask
-gw_prov123 <- st_transform(gw_prov123, crs=crs(spam_P_MAIZ_A_mn))  # Transform CRS to match
-gw_prov123 <- vect(gw_prov123)  # Convert to SpatVector
+# Transform CRS to match
+gw_prov123 <- st_transform(gw_prov123, crs=crs(spam_P_MAIZ_A_mn))  
+# Convert to SpatVector
+gw_prov123 <- vect(gw_prov123)  
 spam_P_MAIZ_A_mn_mask <- mask(spam_P_MAIZ_A_mn, gw_prov123)
 
 plot(spam_P_MAIZ_A_mn_mask)
