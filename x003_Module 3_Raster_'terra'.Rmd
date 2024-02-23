@@ -515,7 +515,7 @@ plot(area_bi)
 
 ### Reclassify
 
-You can use `classify` cel values to replace ranges of values with single values
+You can use `classify` cell values to replace ranges of values with single values
 
 ```{r}
 # classify with a 3-column classifying matrix specifying "from-to-becomes" , or a two-column matrix "is-becomes".
