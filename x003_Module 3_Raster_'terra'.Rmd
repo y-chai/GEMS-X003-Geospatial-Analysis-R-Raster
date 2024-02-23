@@ -202,18 +202,16 @@ spam_P_MAIZ_A_mn <- rast("./data/MN/spam/spam_P_MAIZ_A_mn.tif")
 
 ```
 
-```         
-# Possible Answer:
-# Check for extent, resolution, and crs
-ext(spam_H_MAIZ_A_mn)
-ext(spam_P_MAIZ_A_mn)
+    # Possible Answer:
+    # Check for extent, resolution, and crs
+    ext(spam_H_MAIZ_A_mn)
+    ext(spam_P_MAIZ_A_mn)
 
-res(spam_H_MAIZ_A_mn)
-res(spam_P_MAIZ_A_mn)
+    res(spam_H_MAIZ_A_mn)
+    res(spam_P_MAIZ_A_mn)
 
-crs(spam_H_MAIZ_A_mn)
-crs(spam_P_MAIZ_A_mn)
-```
+    crs(spam_H_MAIZ_A_mn)
+    crs(spam_P_MAIZ_A_mn)
 
 **Step 2:** Use `c()` function to create a multi-layer raster with both area and production layers and rename the layers to "Area" and "Prod"
 
@@ -222,10 +220,8 @@ crs(spam_P_MAIZ_A_mn)
 
 ```
 
-```         
-# Possible answer
-spam_MAIZ_A_mn <- c(spam_H_MAIZ_A_mn, spam_P_MAIZ_A_mn)
-```
+    # Possible answer
+    spam_MAIZ_A_mn <- c(spam_H_MAIZ_A_mn, spam_P_MAIZ_A_mn)
 
 **Step 3:** Use `plot()` and `hist()` functions to explore your RasterStack
 
@@ -234,11 +230,9 @@ spam_MAIZ_A_mn <- c(spam_H_MAIZ_A_mn, spam_P_MAIZ_A_mn)
 
 ```
 
-```         
-# Possible answer:
-plot(spam_MAIZ_A_mn)
-hist(spam_MAIZ_A_mn)
-```
+    # Possible answer:
+    plot(spam_MAIZ_A_mn)
+    hist(spam_MAIZ_A_mn)
 
 ## **Raster Manipulation**
 
@@ -406,12 +400,10 @@ Plot the maize yield raster map and look at the histogram for yield distribution
 # Your code
 ```
 
-```         
-## Possible answer:
-spam_Y_MAIZ_A_mn <- spam_P_MAIZ_A_mn / spam_H_MAIZ_A_mn
-plot(spam_Y_MAIZ_A_mn)
-hist(spam_Y_MAIZ_A_mn)
-```
+    ## Possible answer:
+    spam_Y_MAIZ_A_mn <- spam_P_MAIZ_A_mn / spam_H_MAIZ_A_mn
+    plot(spam_Y_MAIZ_A_mn)
+    hist(spam_Y_MAIZ_A_mn)
 
 **Step 2:** Use `focal()` function to create a RasterLayer which calcualtes the mean yield within 3x3 neighborhood grid cells. Then create a raster map that displays the difference between each grid cell's yield and "mean" yield of its neighborhood
 
@@ -420,15 +412,13 @@ hist(spam_Y_MAIZ_A_mn)
 
 ```
 
-```         
-## Possible answer:
-# focal calculation
-spam_Y_MAIZ_A_mn_focal <- focal(spam_Y_MAIZ_A_mn, w = matrix(1, nrow = 3, ncol = 3), fun = mean, na.rm=T, pad=T, padValue=NA)
+    ## Possible answer:
+    # focal calculation
+    spam_Y_MAIZ_A_mn_focal <- focal(spam_Y_MAIZ_A_mn, w = matrix(1, nrow = 3, ncol = 3), fun = mean, na.rm=T, pad=T, padValue=NA)
 
-# plot the yield difference
-spam_Y_MAIZ_A_mn_diff <- spam_Y_MAIZ_A_mn - spam_Y_MAIZ_A_mn_focal
-plot(spam_Y_MAIZ_A_mn_diff)
-```
+    # plot the yield difference
+    spam_Y_MAIZ_A_mn_diff <- spam_Y_MAIZ_A_mn - spam_Y_MAIZ_A_mn_focal
+    plot(spam_Y_MAIZ_A_mn_diff)
 
 **Step 3:** What's the maximum yield and what's the standard deviation for yield distribution in MN?
 
@@ -437,11 +427,9 @@ plot(spam_Y_MAIZ_A_mn_diff)
 
 ```
 
-```         
-# Possible answer:
-global(spam_Y_MAIZ_A_mn, 'max', na.rm=T)
-global(spam_Y_MAIZ_A_mn, 'sd', na.rm=T)
-```
+    # Possible answer:
+    global(spam_Y_MAIZ_A_mn, 'max', na.rm=T)
+    global(spam_Y_MAIZ_A_mn, 'sd', na.rm=T)
 
 ## **Geometry operations**
 
@@ -486,7 +474,8 @@ area_c1 = crop(area, ext(-1.5, 0.5, -0.5, 1.5))
 area_c2 = crop(area, ext(-0.5, 1.5, -1.5, 0.5))
 area_c1c2 = merge(area_c1, area_c2)
 # Plots
-par(mfrow=c(1,3))
+par(mfrow=c(2,2))
+plot(area)
 plot(area_c1)
 plot(area_c2)
 plot(area_c1c2)
@@ -556,23 +545,21 @@ Plot the aggregated maize yield raster map, check the number of cells in the new
 
 ```
 
-```         
-# Possible answer:
+    # Possible answer:
 
-# Aggregate raster files
-spam_Y_MAIZ_A_mn_agg <- aggregate(spam_Y_MAIZ_A_mn, fact=2, fun=mean)
+    # Aggregate raster files
+    spam_Y_MAIZ_A_mn_agg <- aggregate(spam_Y_MAIZ_A_mn, fact=2, fun=mean)
 
-# Plot map
-plot(spam_Y_MAIZ_A_mn_agg)
+    # Plot map
+    plot(spam_Y_MAIZ_A_mn_agg)
 
-# Number of cells
-ncell(spam_Y_MAIZ_A_mn_agg)
-ncell(spam_Y_MAIZ_A_mn)
+    # Number of cells
+    ncell(spam_Y_MAIZ_A_mn_agg)
+    ncell(spam_Y_MAIZ_A_mn)
 
-# Histogram
-hist(spam_Y_MAIZ_A_mn_agg)
-hist(spam_Y_MAIZ_A_mn)
-```
+    # Histogram
+    hist(spam_Y_MAIZ_A_mn_agg)
+    hist(spam_Y_MAIZ_A_mn)
 
 **Step 2:** Based on the yield distribution (histogram), use `classify()` function to create a RasterLayer which classifies the yield into "low", "mid", "high" groups. Choose your own breaks to do the grouping.
 
@@ -581,17 +568,15 @@ hist(spam_Y_MAIZ_A_mn)
 
 ```
 
-```         
-# Possible answer:
+    # Possible answer:
 
-# matrix method
-spam_Y_MAIZ_A_mn_agg_rcl = classify(spam_Y_MAIZ_A_mn_agg, rcl =  matrix(c(0, 7, 1, 7, 10, 2, 10, 15, 3), ncol = 3, byrow = TRUE))
-plot(spam_Y_MAIZ_A_mn_agg_rcl,  col = c('yellow', 'orange', 'dark green'))
+    # matrix method
+    spam_Y_MAIZ_A_mn_agg_rcl = classify(spam_Y_MAIZ_A_mn_agg, rcl =  matrix(c(0, 7, 1, 7, 10, 2, 10, 15, 3), ncol = 3, byrow = TRUE))
+    plot(spam_Y_MAIZ_A_mn_agg_rcl,  col = c('yellow', 'orange', 'dark green'))
 
-# cut method
-spam_Y_MAIZ_A_mn_agg_cut = classify(spam_Y_MAIZ_A_mn_agg, rcl=c(0, 7, 10, 15), brackets=T)
-plot(spam_Y_MAIZ_A_mn_agg_cut,  col = c('yellow', 'orange', 'dark green'))
-```
+    # cut method
+    spam_Y_MAIZ_A_mn_agg_cut = classify(spam_Y_MAIZ_A_mn_agg, rcl=c(0, 7, 10, 15), brackets=T)
+    plot(spam_Y_MAIZ_A_mn_agg_cut,  col = c('yellow', 'orange', 'dark green'))
 
 ## **Raster-vector interactions**
 
@@ -658,27 +643,25 @@ In this exercise, we will practice raster-vector interactions
 
 ```
 
-```         
-# Read in MN ground water shapefile
-gw_prov <- st_read("./data/MN/gw_prov")
-summary(gw_prov)
+    # Read in MN ground water shapefile
+    gw_prov <- st_read("./data/MN/gw_prov")
+    summary(gw_prov)
 
-# Plot
-tm_shape(gw_prov) +
-  tm_polygons("PROVINCE")
+    # Plot
+    tm_shape(gw_prov) +
+      tm_polygons("PROVINCE")
 
-# Subset PROVINCE 1, 2, 3
-gw_prov123 <- gw_prov[gw_prov$PROVINCE %in% c("1", "2", "3"), ]
+    # Subset PROVINCE 1, 2, 3
+    gw_prov123 <- gw_prov[gw_prov$PROVINCE %in% c("1", "2", "3"), ]
 
-# mask
-# Transform CRS to match
-gw_prov123 <- st_transform(gw_prov123, crs=crs(spam_P_MAIZ_A_mn))  
-# Convert to SpatVector
-gw_prov123 <- vect(gw_prov123)  
-spam_P_MAIZ_A_mn_mask <- mask(spam_P_MAIZ_A_mn, gw_prov123)
+    # mask
+    # Transform CRS to match
+    gw_prov123 <- st_transform(gw_prov123, crs=crs(spam_P_MAIZ_A_mn))  
+    # Convert to SpatVector
+    gw_prov123 <- vect(gw_prov123)  
+    spam_P_MAIZ_A_mn_mask <- mask(spam_P_MAIZ_A_mn, gw_prov123)
 
-plot(spam_P_MAIZ_A_mn_mask)
-```
+    plot(spam_P_MAIZ_A_mn_mask)
 
 **Step 2:** Use `extract()` to calculate the total maize production within each of the MN water provinces 1, 2, 3
 
@@ -693,17 +676,15 @@ plot(spam_P_MAIZ_A_mn_mask)
 
 ```
 
-```         
-# Possible Answer:
-# extract()
-geom_sum <- extract(spam_P_MAIZ_A_mn_mask, gw_prov123, fun=sum, na.rm=T)
-geom_sum
+    # Possible Answer:
+    # extract()
+    geom_sum <- extract(spam_P_MAIZ_A_mn_mask, gw_prov123, fun=sum, na.rm=T)
+    geom_sum
 
-# Province level total production
-geom_sum$PROVINCE <- gw_prov123$PROVINCE
-geom_sum <- as.data.table(geom_sum)
-geom_sum[, .(PROD_TOT = sum(spam_P_MAIZ_A_mn)), by=.(PROVINCE)]
-```
+    # Province level total production
+    geom_sum$PROVINCE <- gw_prov123$PROVINCE
+    geom_sum <- as.data.table(geom_sum)
+    geom_sum[, .(PROD_TOT = sum(spam_P_MAIZ_A_mn)), by=.(PROVINCE)]
 
 **Step 3:** Use `rasterize()` to calculate the total maize production within MN water provinces 1, 2, 3 - To use `rasterize()`, first need to convert province character to numeric `PROVINCE_CODE`, then rasterize on this field using either min or max function - Recall we can use `zonal()` function to aggregate one raster (i.e., production) based on another raster (i.e., provinces) - Compare your results with the `extract()` method
 
@@ -712,17 +693,15 @@ geom_sum[, .(PROD_TOT = sum(spam_P_MAIZ_A_mn)), by=.(PROVINCE)]
 
 ```
 
-```         
-# Possible answer:
-# rasterize()
-gw_prov123$PROVINCE_CODE <- as.numeric(gw_prov123$PROVINCE)
-gw_prov123_ras <- rasterize(gw_prov123, spam_P_MAIZ_A_mn_mask, field="PROVINCE_CODE", fun=min)
-plot(gw_prov123_ras, col=c("red", "blue", "green"))
+    # Possible answer:
+    # rasterize()
+    gw_prov123$PROVINCE_CODE <- as.numeric(gw_prov123$PROVINCE)
+    gw_prov123_ras <- rasterize(gw_prov123, spam_P_MAIZ_A_mn_mask, field="PROVINCE_CODE", fun=min)
+    plot(gw_prov123_ras, col=c("red", "blue", "green"))
 
-# zonal calculation
-gw_prov123_zonal <- zonal(spam_P_MAIZ_A_mn_mask, gw_prov123_ras, fun = "sum", na.rm=T) 
-gw_prov123_zonal
-```
+    # zonal calculation
+    gw_prov123_zonal <- zonal(spam_P_MAIZ_A_mn_mask, gw_prov123_ras, fun = "sum", na.rm=T) 
+    gw_prov123_zonal
 
 ### [**Additional `terra` learning resources.**]{style="color:Green"}
 
