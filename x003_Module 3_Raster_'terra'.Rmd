@@ -686,7 +686,13 @@ In this exercise, we will practice raster-vector interactions
     geom_sum <- as.data.table(geom_sum)
     geom_sum[, .(PROD_TOT = sum(spam_P_MAIZ_A_mn)), by=.(PROVINCE)]
 
-**Step 3:** Use `rasterize()` to calculate the total maize production within MN water provinces 1, 2, 3 - To use `rasterize()`, first need to convert province character to numeric `PROVINCE_CODE`, then rasterize on this field using either min or max function - Recall we can use `zonal()` function to aggregate one raster (i.e., production) based on another raster (i.e., provinces) - Compare your results with the `extract()` method
+**Step 3:** Use `rasterize()` to calculate the total maize production within MN water provinces 1, 2, 3
+
+\- To use `rasterize()`, first need to convert province character to numeric `PROVINCE_CODE`, then rasterize on this field using either min or max function
+
+\- Recall we can use `zonal()` function to aggregate one raster (i.e., production) based on another raster (i.e., provinces)
+
+\- Compare your results with the `extract()` method
 
 ```{r}
 # Your code
